@@ -1,0 +1,1124 @@
+{
+ "Resources": {
+  "MyVpc06Jun20255CA63EB9": {
+   "Type": "AWS::EC2::VPC",
+   "Properties": {
+    "CidrBlock": "10.0.0.0/16",
+    "EnableDnsHostnames": true,
+    "EnableDnsSupport": true,
+    "InstanceTenancy": "default",
+    "Tags": [
+     {
+      "Key": "Name",
+      "Value": "DeployPsqlStack/MyVpc06Jun2025"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "DeployPsqlStack/MyVpc06Jun2025/Resource"
+   }
+  },
+  "MyVpc06Jun2025pubsub06Jun2025Subnet1Subnet79114604": {
+   "Type": "AWS::EC2::Subnet",
+   "Properties": {
+    "AvailabilityZone": {
+     "Fn::Select": [
+      0,
+      {
+       "Fn::GetAZs": ""
+      }
+     ]
+    },
+    "CidrBlock": "10.0.0.0/24",
+    "MapPublicIpOnLaunch": true,
+    "Tags": [
+     {
+      "Key": "aws-cdk:subnet-name",
+      "Value": "pubsub06Jun2025"
+     },
+     {
+      "Key": "aws-cdk:subnet-type",
+      "Value": "Public"
+     },
+     {
+      "Key": "Name",
+      "Value": "DeployPsqlStack/MyVpc06Jun2025/pubsub06Jun2025Subnet1"
+     }
+    ],
+    "VpcId": {
+     "Ref": "MyVpc06Jun20255CA63EB9"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "DeployPsqlStack/MyVpc06Jun2025/pubsub06Jun2025Subnet1/Subnet"
+   }
+  },
+  "MyVpc06Jun2025pubsub06Jun2025Subnet1RouteTableF149FB6B": {
+   "Type": "AWS::EC2::RouteTable",
+   "Properties": {
+    "Tags": [
+     {
+      "Key": "Name",
+      "Value": "DeployPsqlStack/MyVpc06Jun2025/pubsub06Jun2025Subnet1"
+     }
+    ],
+    "VpcId": {
+     "Ref": "MyVpc06Jun20255CA63EB9"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "DeployPsqlStack/MyVpc06Jun2025/pubsub06Jun2025Subnet1/RouteTable"
+   }
+  },
+  "MyVpc06Jun2025pubsub06Jun2025Subnet1RouteTableAssociationD18A6A7D": {
+   "Type": "AWS::EC2::SubnetRouteTableAssociation",
+   "Properties": {
+    "RouteTableId": {
+     "Ref": "MyVpc06Jun2025pubsub06Jun2025Subnet1RouteTableF149FB6B"
+    },
+    "SubnetId": {
+     "Ref": "MyVpc06Jun2025pubsub06Jun2025Subnet1Subnet79114604"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "DeployPsqlStack/MyVpc06Jun2025/pubsub06Jun2025Subnet1/RouteTableAssociation"
+   }
+  },
+  "MyVpc06Jun2025pubsub06Jun2025Subnet1DefaultRouteB815FEFB": {
+   "Type": "AWS::EC2::Route",
+   "Properties": {
+    "DestinationCidrBlock": "0.0.0.0/0",
+    "GatewayId": {
+     "Ref": "MyVpc06Jun2025IGWABF3E6E6"
+    },
+    "RouteTableId": {
+     "Ref": "MyVpc06Jun2025pubsub06Jun2025Subnet1RouteTableF149FB6B"
+    }
+   },
+   "DependsOn": [
+    "MyVpc06Jun2025VPCGW87F52EF4"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "DeployPsqlStack/MyVpc06Jun2025/pubsub06Jun2025Subnet1/DefaultRoute"
+   }
+  },
+  "MyVpc06Jun2025pubsub06Jun2025Subnet2Subnet389F7C98": {
+   "Type": "AWS::EC2::Subnet",
+   "Properties": {
+    "AvailabilityZone": {
+     "Fn::Select": [
+      1,
+      {
+       "Fn::GetAZs": ""
+      }
+     ]
+    },
+    "CidrBlock": "10.0.1.0/24",
+    "MapPublicIpOnLaunch": true,
+    "Tags": [
+     {
+      "Key": "aws-cdk:subnet-name",
+      "Value": "pubsub06Jun2025"
+     },
+     {
+      "Key": "aws-cdk:subnet-type",
+      "Value": "Public"
+     },
+     {
+      "Key": "Name",
+      "Value": "DeployPsqlStack/MyVpc06Jun2025/pubsub06Jun2025Subnet2"
+     }
+    ],
+    "VpcId": {
+     "Ref": "MyVpc06Jun20255CA63EB9"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "DeployPsqlStack/MyVpc06Jun2025/pubsub06Jun2025Subnet2/Subnet"
+   }
+  },
+  "MyVpc06Jun2025pubsub06Jun2025Subnet2RouteTable33576165": {
+   "Type": "AWS::EC2::RouteTable",
+   "Properties": {
+    "Tags": [
+     {
+      "Key": "Name",
+      "Value": "DeployPsqlStack/MyVpc06Jun2025/pubsub06Jun2025Subnet2"
+     }
+    ],
+    "VpcId": {
+     "Ref": "MyVpc06Jun20255CA63EB9"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "DeployPsqlStack/MyVpc06Jun2025/pubsub06Jun2025Subnet2/RouteTable"
+   }
+  },
+  "MyVpc06Jun2025pubsub06Jun2025Subnet2RouteTableAssociationF12854C7": {
+   "Type": "AWS::EC2::SubnetRouteTableAssociation",
+   "Properties": {
+    "RouteTableId": {
+     "Ref": "MyVpc06Jun2025pubsub06Jun2025Subnet2RouteTable33576165"
+    },
+    "SubnetId": {
+     "Ref": "MyVpc06Jun2025pubsub06Jun2025Subnet2Subnet389F7C98"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "DeployPsqlStack/MyVpc06Jun2025/pubsub06Jun2025Subnet2/RouteTableAssociation"
+   }
+  },
+  "MyVpc06Jun2025pubsub06Jun2025Subnet2DefaultRouteD9806E50": {
+   "Type": "AWS::EC2::Route",
+   "Properties": {
+    "DestinationCidrBlock": "0.0.0.0/0",
+    "GatewayId": {
+     "Ref": "MyVpc06Jun2025IGWABF3E6E6"
+    },
+    "RouteTableId": {
+     "Ref": "MyVpc06Jun2025pubsub06Jun2025Subnet2RouteTable33576165"
+    }
+   },
+   "DependsOn": [
+    "MyVpc06Jun2025VPCGW87F52EF4"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "DeployPsqlStack/MyVpc06Jun2025/pubsub06Jun2025Subnet2/DefaultRoute"
+   }
+  },
+  "MyVpc06Jun2025pvtsub06Jun2025Subnet1Subnet1FB2A2DF": {
+   "Type": "AWS::EC2::Subnet",
+   "Properties": {
+    "AvailabilityZone": {
+     "Fn::Select": [
+      0,
+      {
+       "Fn::GetAZs": ""
+      }
+     ]
+    },
+    "CidrBlock": "10.0.2.0/24",
+    "MapPublicIpOnLaunch": false,
+    "Tags": [
+     {
+      "Key": "aws-cdk:subnet-name",
+      "Value": "pvtsub06Jun2025"
+     },
+     {
+      "Key": "aws-cdk:subnet-type",
+      "Value": "Isolated"
+     },
+     {
+      "Key": "Name",
+      "Value": "DeployPsqlStack/MyVpc06Jun2025/pvtsub06Jun2025Subnet1"
+     }
+    ],
+    "VpcId": {
+     "Ref": "MyVpc06Jun20255CA63EB9"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "DeployPsqlStack/MyVpc06Jun2025/pvtsub06Jun2025Subnet1/Subnet"
+   }
+  },
+  "MyVpc06Jun2025pvtsub06Jun2025Subnet1RouteTableFBC488D5": {
+   "Type": "AWS::EC2::RouteTable",
+   "Properties": {
+    "Tags": [
+     {
+      "Key": "Name",
+      "Value": "DeployPsqlStack/MyVpc06Jun2025/pvtsub06Jun2025Subnet1"
+     }
+    ],
+    "VpcId": {
+     "Ref": "MyVpc06Jun20255CA63EB9"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "DeployPsqlStack/MyVpc06Jun2025/pvtsub06Jun2025Subnet1/RouteTable"
+   }
+  },
+  "MyVpc06Jun2025pvtsub06Jun2025Subnet1RouteTableAssociationBBFC7425": {
+   "Type": "AWS::EC2::SubnetRouteTableAssociation",
+   "Properties": {
+    "RouteTableId": {
+     "Ref": "MyVpc06Jun2025pvtsub06Jun2025Subnet1RouteTableFBC488D5"
+    },
+    "SubnetId": {
+     "Ref": "MyVpc06Jun2025pvtsub06Jun2025Subnet1Subnet1FB2A2DF"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "DeployPsqlStack/MyVpc06Jun2025/pvtsub06Jun2025Subnet1/RouteTableAssociation"
+   }
+  },
+  "MyVpc06Jun2025pvtsub06Jun2025Subnet2SubnetFD745858": {
+   "Type": "AWS::EC2::Subnet",
+   "Properties": {
+    "AvailabilityZone": {
+     "Fn::Select": [
+      1,
+      {
+       "Fn::GetAZs": ""
+      }
+     ]
+    },
+    "CidrBlock": "10.0.3.0/24",
+    "MapPublicIpOnLaunch": false,
+    "Tags": [
+     {
+      "Key": "aws-cdk:subnet-name",
+      "Value": "pvtsub06Jun2025"
+     },
+     {
+      "Key": "aws-cdk:subnet-type",
+      "Value": "Isolated"
+     },
+     {
+      "Key": "Name",
+      "Value": "DeployPsqlStack/MyVpc06Jun2025/pvtsub06Jun2025Subnet2"
+     }
+    ],
+    "VpcId": {
+     "Ref": "MyVpc06Jun20255CA63EB9"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "DeployPsqlStack/MyVpc06Jun2025/pvtsub06Jun2025Subnet2/Subnet"
+   }
+  },
+  "MyVpc06Jun2025pvtsub06Jun2025Subnet2RouteTableAE7D7339": {
+   "Type": "AWS::EC2::RouteTable",
+   "Properties": {
+    "Tags": [
+     {
+      "Key": "Name",
+      "Value": "DeployPsqlStack/MyVpc06Jun2025/pvtsub06Jun2025Subnet2"
+     }
+    ],
+    "VpcId": {
+     "Ref": "MyVpc06Jun20255CA63EB9"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "DeployPsqlStack/MyVpc06Jun2025/pvtsub06Jun2025Subnet2/RouteTable"
+   }
+  },
+  "MyVpc06Jun2025pvtsub06Jun2025Subnet2RouteTableAssociationE711111F": {
+   "Type": "AWS::EC2::SubnetRouteTableAssociation",
+   "Properties": {
+    "RouteTableId": {
+     "Ref": "MyVpc06Jun2025pvtsub06Jun2025Subnet2RouteTableAE7D7339"
+    },
+    "SubnetId": {
+     "Ref": "MyVpc06Jun2025pvtsub06Jun2025Subnet2SubnetFD745858"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "DeployPsqlStack/MyVpc06Jun2025/pvtsub06Jun2025Subnet2/RouteTableAssociation"
+   }
+  },
+  "MyVpc06Jun2025IGWABF3E6E6": {
+   "Type": "AWS::EC2::InternetGateway",
+   "Properties": {
+    "Tags": [
+     {
+      "Key": "Name",
+      "Value": "DeployPsqlStack/MyVpc06Jun2025"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "DeployPsqlStack/MyVpc06Jun2025/IGW"
+   }
+  },
+  "MyVpc06Jun2025VPCGW87F52EF4": {
+   "Type": "AWS::EC2::VPCGatewayAttachment",
+   "Properties": {
+    "InternetGatewayId": {
+     "Ref": "MyVpc06Jun2025IGWABF3E6E6"
+    },
+    "VpcId": {
+     "Ref": "MyVpc06Jun20255CA63EB9"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "DeployPsqlStack/MyVpc06Jun2025/VPCGW"
+   }
+  },
+  "MyVpc06Jun2025RestrictDefaultSecurityGroupCustomResource9BF9418E": {
+   "Type": "Custom::VpcRestrictDefaultSG",
+   "Properties": {
+    "ServiceToken": {
+     "Fn::GetAtt": [
+      "CustomVpcRestrictDefaultSGCustomResourceProviderHandlerDC833E5E",
+      "Arn"
+     ]
+    },
+    "DefaultSecurityGroupId": {
+     "Fn::GetAtt": [
+      "MyVpc06Jun20255CA63EB9",
+      "DefaultSecurityGroup"
+     ]
+    },
+    "Account": {
+     "Ref": "AWS::AccountId"
+    }
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "DeployPsqlStack/MyVpc06Jun2025/RestrictDefaultSecurityGroupCustomResource/Default"
+   }
+  },
+  "CustomVpcRestrictDefaultSGCustomResourceProviderRole26592FE0": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Version": "2012-10-17",
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "lambda.amazonaws.com"
+       }
+      }
+     ]
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Sub": "arn:${AWS::Partition}:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+     }
+    ],
+    "Policies": [
+     {
+      "PolicyName": "Inline",
+      "PolicyDocument": {
+       "Version": "2012-10-17",
+       "Statement": [
+        {
+         "Effect": "Allow",
+         "Action": [
+          "ec2:AuthorizeSecurityGroupIngress",
+          "ec2:AuthorizeSecurityGroupEgress",
+          "ec2:RevokeSecurityGroupIngress",
+          "ec2:RevokeSecurityGroupEgress"
+         ],
+         "Resource": [
+          {
+           "Fn::Join": [
+            "",
+            [
+             "arn:",
+             {
+              "Ref": "AWS::Partition"
+             },
+             ":ec2:",
+             {
+              "Ref": "AWS::Region"
+             },
+             ":",
+             {
+              "Ref": "AWS::AccountId"
+             },
+             ":security-group/",
+             {
+              "Fn::GetAtt": [
+               "MyVpc06Jun20255CA63EB9",
+               "DefaultSecurityGroup"
+              ]
+             }
+            ]
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "DeployPsqlStack/Custom::VpcRestrictDefaultSGCustomResourceProvider/Role"
+   }
+  },
+  "CustomVpcRestrictDefaultSGCustomResourceProviderHandlerDC833E5E": {
+   "Type": "AWS::Lambda::Function",
+   "Properties": {
+    "Code": {
+     "S3Bucket": {
+      "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
+     },
+     "S3Key": "7fa1e366ee8a9ded01fc355f704cff92bfd179574e6f9cfee800a3541df1b200.zip"
+    },
+    "Timeout": 900,
+    "MemorySize": 128,
+    "Handler": "__entrypoint__.handler",
+    "Role": {
+     "Fn::GetAtt": [
+      "CustomVpcRestrictDefaultSGCustomResourceProviderRole26592FE0",
+      "Arn"
+     ]
+    },
+    "Runtime": "nodejs22.x",
+    "Description": "Lambda function for removing all inbound/outbound rules from the VPC default security group"
+   },
+   "DependsOn": [
+    "CustomVpcRestrictDefaultSGCustomResourceProviderRole26592FE0"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "DeployPsqlStack/Custom::VpcRestrictDefaultSGCustomResourceProvider/Handler",
+    "aws:asset:path": "asset.7fa1e366ee8a9ded01fc355f704cff92bfd179574e6f9cfee800a3541df1b200",
+    "aws:asset:property": "Code"
+   }
+  },
+  "BastionSG06Jun2025FEC54E03": {
+   "Type": "AWS::EC2::SecurityGroup",
+   "Properties": {
+    "GroupDescription": "Bastion SG06Jun2025",
+    "SecurityGroupEgress": [
+     {
+      "CidrIp": "0.0.0.0/0",
+      "Description": "Allow all outbound traffic by default",
+      "IpProtocol": "-1"
+     }
+    ],
+    "SecurityGroupIngress": [
+     {
+      "CidrIp": "136.32.251.101/32",
+      "Description": "Allow SSH only from my laptop 136.32.251.101",
+      "FromPort": 22,
+      "IpProtocol": "tcp",
+      "ToPort": 22
+     }
+    ],
+    "VpcId": {
+     "Ref": "MyVpc06Jun20255CA63EB9"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "DeployPsqlStack/BastionSG06Jun2025/Resource"
+   }
+  },
+  "RDSSG06Jun2025159021D1": {
+   "Type": "AWS::EC2::SecurityGroup",
+   "Properties": {
+    "GroupDescription": "RDSSG06Jun2025",
+    "SecurityGroupEgress": [
+     {
+      "CidrIp": "0.0.0.0/0",
+      "Description": "Allow all outbound traffic by default",
+      "IpProtocol": "-1"
+     }
+    ],
+    "VpcId": {
+     "Ref": "MyVpc06Jun20255CA63EB9"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "DeployPsqlStack/RDSSG06Jun2025/Resource"
+   }
+  },
+  "RDSSG06Jun2025fromDeployPsqlStackBastionSG06Jun2025096EB649543235A38BA6": {
+   "Type": "AWS::EC2::SecurityGroupIngress",
+   "Properties": {
+    "Description": "Allow Postgresql access from Bastion host only",
+    "FromPort": 5432,
+    "GroupId": {
+     "Fn::GetAtt": [
+      "RDSSG06Jun2025159021D1",
+      "GroupId"
+     ]
+    },
+    "IpProtocol": "tcp",
+    "SourceSecurityGroupId": {
+     "Fn::GetAtt": [
+      "BastionSG06Jun2025FEC54E03",
+      "GroupId"
+     ]
+    },
+    "ToPort": 5432
+   },
+   "Metadata": {
+    "aws:cdk:path": "DeployPsqlStack/RDSSG06Jun2025/from DeployPsqlStackBastionSG06Jun2025096EB649:5432"
+   }
+  },
+  "Bastion06Jun2025InstanceRole02EBC15B": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "ec2.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "Tags": [
+     {
+      "Key": "Name",
+      "Value": "DeployPsqlStack/Bastion06Jun2025"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "DeployPsqlStack/Bastion06Jun2025/InstanceRole/Resource"
+   }
+  },
+  "Bastion06Jun2025InstanceProfile1470EE03": {
+   "Type": "AWS::IAM::InstanceProfile",
+   "Properties": {
+    "Roles": [
+     {
+      "Ref": "Bastion06Jun2025InstanceRole02EBC15B"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "DeployPsqlStack/Bastion06Jun2025/InstanceProfile"
+   }
+  },
+  "Bastion06Jun2025703E2CCC": {
+   "Type": "AWS::EC2::Instance",
+   "Properties": {
+    "AvailabilityZone": {
+     "Fn::Select": [
+      0,
+      {
+       "Fn::GetAZs": ""
+      }
+     ]
+    },
+    "IamInstanceProfile": {
+     "Ref": "Bastion06Jun2025InstanceProfile1470EE03"
+    },
+    "ImageId": {
+     "Ref": "SsmParameterValueawsserviceamiamazonlinuxlatestal2023amikernel61x8664C96584B6F00A464EAD1953AFF4B05118Parameter"
+    },
+    "InstanceType": "t2.micro",
+    "KeyName": "PemKeyPair4ssh06-Jun-2025",
+    "SecurityGroupIds": [
+     {
+      "Fn::GetAtt": [
+       "BastionSG06Jun2025FEC54E03",
+       "GroupId"
+      ]
+     }
+    ],
+    "SubnetId": {
+     "Ref": "MyVpc06Jun2025pubsub06Jun2025Subnet1Subnet79114604"
+    },
+    "Tags": [
+     {
+      "Key": "Name",
+      "Value": "DeployPsqlStack/Bastion06Jun2025"
+     }
+    ],
+    "UserData": {
+     "Fn::Base64": "#!/bin/bash"
+    }
+   },
+   "DependsOn": [
+    "Bastion06Jun2025InstanceRole02EBC15B"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "DeployPsqlStack/Bastion06Jun2025/Resource"
+   }
+  },
+  "psqldb06Jun2025SubnetGroup63889476": {
+   "Type": "AWS::RDS::DBSubnetGroup",
+   "Properties": {
+    "DBSubnetGroupDescription": "Subnet group for psqldb06Jun2025 database",
+    "SubnetIds": [
+     {
+      "Ref": "MyVpc06Jun2025pvtsub06Jun2025Subnet1Subnet1FB2A2DF"
+     },
+     {
+      "Ref": "MyVpc06Jun2025pvtsub06Jun2025Subnet2SubnetFD745858"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "DeployPsqlStack/psqldb06Jun2025/SubnetGroup/Default"
+   }
+  },
+  "DeployPsqlStackpsqldb06Jun2025Secret34DA2A1C3fdaad7efa858a3daf9490cf0a702aeb": {
+   "Type": "AWS::SecretsManager::Secret",
+   "Properties": {
+    "Description": {
+     "Fn::Join": [
+      "",
+      [
+       "Generated by the CDK for stack: ",
+       {
+        "Ref": "AWS::StackName"
+       }
+      ]
+     ]
+    },
+    "GenerateSecretString": {
+     "ExcludeCharacters": " %+~`#$&*()|[]{}:;<>?!'/@\"\\",
+     "GenerateStringKey": "password",
+     "PasswordLength": 30,
+     "SecretStringTemplate": "{\"username\":\"postgres\"}"
+    }
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "DeployPsqlStack/psqldb06Jun2025/Secret/Resource"
+   }
+  },
+  "psqldb06Jun2025SecretAttachment642005F2": {
+   "Type": "AWS::SecretsManager::SecretTargetAttachment",
+   "Properties": {
+    "SecretId": {
+     "Ref": "DeployPsqlStackpsqldb06Jun2025Secret34DA2A1C3fdaad7efa858a3daf9490cf0a702aeb"
+    },
+    "TargetId": {
+     "Ref": "psqldb06Jun202528C8F525"
+    },
+    "TargetType": "AWS::RDS::DBInstance"
+   },
+   "Metadata": {
+    "aws:cdk:path": "DeployPsqlStack/psqldb06Jun2025/Secret/Attachment/Resource"
+   }
+  },
+  "psqldb06Jun202528C8F525": {
+   "Type": "AWS::RDS::DBInstance",
+   "Properties": {
+    "AllocatedStorage": "20",
+    "CopyTagsToSnapshot": true,
+    "DBInstanceClass": "db.t3.micro",
+    "DBName": "psqldb",
+    "DBSubnetGroupName": {
+     "Ref": "psqldb06Jun2025SubnetGroup63889476"
+    },
+    "DeletionProtection": false,
+    "Engine": "postgres",
+    "EngineVersion": "17.5",
+    "MasterUserPassword": {
+     "Fn::Join": [
+      "",
+      [
+       "{{resolve:secretsmanager:",
+       {
+        "Ref": "DeployPsqlStackpsqldb06Jun2025Secret34DA2A1C3fdaad7efa858a3daf9490cf0a702aeb"
+       },
+       ":SecretString:password::}}"
+      ]
+     ]
+    },
+    "MasterUsername": "postgres",
+    "MultiAZ": false,
+    "PubliclyAccessible": false,
+    "StorageType": "gp2",
+    "VPCSecurityGroups": [
+     {
+      "Fn::GetAtt": [
+       "RDSSG06Jun2025159021D1",
+       "GroupId"
+      ]
+     }
+    ]
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "DeployPsqlStack/psqldb06Jun2025/Resource"
+   }
+  },
+  "CDKMetadata": {
+   "Type": "AWS::CDK::Metadata",
+   "Properties": {
+    "Analytics": "v2:deflate64:H4sIAAAAAAAA/+1WS4/bNhD+LeEx0KrJLpDD3rQOGhh9rGBv91BjUYypscyYItXh0BtF0H8vKFGW1nGLFshhDz2ZHM188/yGvk6v371L37+BZ3cli8OVVtu0XTPIQwLP7o8W5XXaPtZy04oKvmRfnbgVb0UinN8a5IU1O1V6AlbWiNtNKwxU+ELloamDIPdbraRIhFQF/QLu0Ct1yd9bLJ3VwFh8Y/PUPSWLnXnMF8mAuu7NNq2AIygNW6UVN79bM8Iea7ks4jlA3WkrD/FeQT2ALOt78zN4I/filsljIlR9/LA4UwfnVGmW9fFDVhSEzt2bBWFMPyb0KqJ4NYG8jiiGkRkGJZxW1jM+wFbjJJ9kmXNWqh7gpJzkpI7A+N2HbQfavYLy/h/G9wqjH7WlYSSD/AkYn6GJCyveMmaQ+woNJ2uUnhQ3n8j6etOGSKOfAp0kVb9MryiWpgxOV15jv3AlmKXRyuAgGVgirTEog+m4r71Rf3qMRej3Qy9+K54C7n/0GjTnCAO55pl8I4gAydI4BiNx0woVj3HfD72Qe2VwWUE5a108HbD5dfZWzNEn3YGeTty2F9+fbuzO4LpLFFRpu7I6BATO+QqLuyZY16SMVDXoTErrDU/d9xUGg0xORRpQg3SOnpPdKY1dQoVL24/AsAWHswrMy64xwOVkGSNwnMHKa1bZ19O97jPRTSYlOqe2oSPxE2Flj6Bzq5VsxG1oJpNtzqvlhhY+/WPBTs9vlwg0pQpcauNp1jGnTKnxN4e0styTIKtrreTEh9H8Ecn1slbsvNana2z8Z0tzUZeIGggqZKQ+6B+hUrp5gfhCVOAOvOYQyekfRZcI0NrKkMeaLU1TVcRmzAbqwjhKwgINK9BupPZQrpGt52yZj+u/rO15z8YF8vFu5ioZh2eNkvrXB42kpnf8EzYTJQh5lhJh34oVlqdNEPjs5zW6YHYJG79I7Qtc7IFAMpKbuQCJ9yYH554tFQtSjKRgsQdTohs30qVQYp4TGYdIXAUGSqS0HZYIYb8mCfkBqESetuemjcHHYLj/PgO/bNZ1yQqd9SRx4MHCO7bVmWxnRsHZ95zsURVId+AwyZxDXjOUypTBJh+HNlzuPdeeuyRveG/NDzfp+5v05s1np9QVecOqwnQ1/P4FPSrDYIcLAAA="
+   },
+   "Metadata": {
+    "aws:cdk:path": "DeployPsqlStack/CDKMetadata/Default"
+   },
+   "Condition": "CDKMetadataAvailable"
+  }
+ },
+ "Parameters": {
+  "SsmParameterValueawsserviceamiamazonlinuxlatestal2023amikernel61x8664C96584B6F00A464EAD1953AFF4B05118Parameter": {
+   "Type": "AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>",
+   "Default": "/aws/service/ami-amazon-linux-latest/al2023-ami-kernel-6.1-x86_64"
+  },
+  "BootstrapVersion": {
+   "Type": "AWS::SSM::Parameter::Value<String>",
+   "Default": "/cdk-bootstrap/hnb659fds/version",
+   "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]"
+  }
+ },
+ "Outputs": {
+  "BastionHostPublicIP": {
+   "Value": {
+    "Fn::GetAtt": [
+     "Bastion06Jun2025703E2CCC",
+     "PublicIp"
+    ]
+   }
+  },
+  "RDSEndpoint": {
+   "Value": {
+    "Fn::GetAtt": [
+     "psqldb06Jun202528C8F525",
+     "Endpoint.Address"
+    ]
+   }
+  },
+  "RDSSecretName": {
+   "Value": {
+    "Fn::Join": [
+     "-",
+     [
+      {
+       "Fn::Select": [
+        0,
+        {
+         "Fn::Split": [
+          "-",
+          {
+           "Fn::Select": [
+            6,
+            {
+             "Fn::Split": [
+              ":",
+              {
+               "Ref": "DeployPsqlStackpsqldb06Jun2025Secret34DA2A1C3fdaad7efa858a3daf9490cf0a702aeb"
+              }
+             ]
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "Fn::Select": [
+        1,
+        {
+         "Fn::Split": [
+          "-",
+          {
+           "Fn::Select": [
+            6,
+            {
+             "Fn::Split": [
+              ":",
+              {
+               "Ref": "DeployPsqlStackpsqldb06Jun2025Secret34DA2A1C3fdaad7efa858a3daf9490cf0a702aeb"
+              }
+             ]
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    ]
+   }
+  }
+ },
+ "Conditions": {
+  "CDKMetadataAvailable": {
+   "Fn::Or": [
+    {
+     "Fn::Or": [
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "af-south-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ap-east-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ap-northeast-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ap-northeast-2"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ap-northeast-3"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ap-south-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ap-south-2"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ap-southeast-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ap-southeast-2"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ap-southeast-3"
+       ]
+      }
+     ]
+    },
+    {
+     "Fn::Or": [
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ap-southeast-4"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ca-central-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ca-west-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "cn-north-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "cn-northwest-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "eu-central-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "eu-central-2"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "eu-north-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "eu-south-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "eu-south-2"
+       ]
+      }
+     ]
+    },
+    {
+     "Fn::Or": [
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "eu-west-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "eu-west-2"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "eu-west-3"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "il-central-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "me-central-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "me-south-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "sa-east-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "us-east-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "us-east-2"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "us-west-1"
+       ]
+      }
+     ]
+    },
+    {
+     "Fn::Equals": [
+      {
+       "Ref": "AWS::Region"
+      },
+      "us-west-2"
+     ]
+    }
+   ]
+  }
+ },
+ "Rules": {
+  "CheckBootstrapVersion": {
+   "Assertions": [
+    {
+     "Assert": {
+      "Fn::Not": [
+       {
+        "Fn::Contains": [
+         [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+         ],
+         {
+          "Ref": "BootstrapVersion"
+         }
+        ]
+       }
+      ]
+     },
+     "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI."
+    }
+   ]
+  }
+ }
+}

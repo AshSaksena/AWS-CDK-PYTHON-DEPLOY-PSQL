@@ -1,0 +1,564 @@
+{
+  "version": "44.0.0",
+  "artifacts": {
+    "DeployPsqlStack.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "DeployPsqlStack.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "DeployPsqlStack": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://unknown-account/unknown-region",
+      "properties": {
+        "templateFile": "DeployPsqlStack.template.json",
+        "terminationProtection": false,
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/c33d2c2276874ff4b59a50a11124052c3e6a67cb3e82b9d1eeba9e28a4ff5184.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "DeployPsqlStack.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-lookup-role-${AWS::AccountId}-${AWS::Region}",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "DeployPsqlStack.assets"
+      ],
+      "metadata": {
+        "/DeployPsqlStack/MyVpc06Jun2025": [
+          {
+            "type": "aws:cdk:analytics:construct",
+            "data": {
+              "maxAzs": "*",
+              "subnetConfiguration": [
+                {
+                  "name": "*",
+                  "subnetType": "Public",
+                  "cidrMask": "*"
+                },
+                {
+                  "name": "*",
+                  "subnetType": "Isolated",
+                  "cidrMask": "*"
+                }
+              ]
+            }
+          }
+        ],
+        "/DeployPsqlStack/MyVpc06Jun2025/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MyVpc06Jun20255CA63EB9"
+          }
+        ],
+        "/DeployPsqlStack/MyVpc06Jun2025/pubsub06Jun2025Subnet1": [
+          {
+            "type": "aws:cdk:analytics:construct",
+            "data": {
+              "availabilityZone": "*",
+              "vpcId": "*",
+              "cidrBlock": "*",
+              "mapPublicIpOnLaunch": true,
+              "ipv6CidrBlock": "*",
+              "assignIpv6AddressOnCreation": "*"
+            }
+          },
+          {
+            "type": "aws:cdk:analytics:construct",
+            "data": {
+              "availabilityZone": "*",
+              "vpcId": "*",
+              "cidrBlock": "*",
+              "mapPublicIpOnLaunch": true,
+              "ipv6CidrBlock": "*",
+              "assignIpv6AddressOnCreation": "*"
+            }
+          },
+          {
+            "type": "aws:cdk:analytics:method",
+            "data": {}
+          }
+        ],
+        "/DeployPsqlStack/MyVpc06Jun2025/pubsub06Jun2025Subnet1/Subnet": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MyVpc06Jun2025pubsub06Jun2025Subnet1Subnet79114604"
+          }
+        ],
+        "/DeployPsqlStack/MyVpc06Jun2025/pubsub06Jun2025Subnet1/RouteTable": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MyVpc06Jun2025pubsub06Jun2025Subnet1RouteTableF149FB6B"
+          }
+        ],
+        "/DeployPsqlStack/MyVpc06Jun2025/pubsub06Jun2025Subnet1/RouteTableAssociation": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MyVpc06Jun2025pubsub06Jun2025Subnet1RouteTableAssociationD18A6A7D"
+          }
+        ],
+        "/DeployPsqlStack/MyVpc06Jun2025/pubsub06Jun2025Subnet1/DefaultRoute": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MyVpc06Jun2025pubsub06Jun2025Subnet1DefaultRouteB815FEFB"
+          }
+        ],
+        "/DeployPsqlStack/MyVpc06Jun2025/pubsub06Jun2025Subnet2": [
+          {
+            "type": "aws:cdk:analytics:construct",
+            "data": {
+              "availabilityZone": "*",
+              "vpcId": "*",
+              "cidrBlock": "*",
+              "mapPublicIpOnLaunch": true,
+              "ipv6CidrBlock": "*",
+              "assignIpv6AddressOnCreation": "*"
+            }
+          },
+          {
+            "type": "aws:cdk:analytics:construct",
+            "data": {
+              "availabilityZone": "*",
+              "vpcId": "*",
+              "cidrBlock": "*",
+              "mapPublicIpOnLaunch": true,
+              "ipv6CidrBlock": "*",
+              "assignIpv6AddressOnCreation": "*"
+            }
+          },
+          {
+            "type": "aws:cdk:analytics:method",
+            "data": {}
+          }
+        ],
+        "/DeployPsqlStack/MyVpc06Jun2025/pubsub06Jun2025Subnet2/Subnet": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MyVpc06Jun2025pubsub06Jun2025Subnet2Subnet389F7C98"
+          }
+        ],
+        "/DeployPsqlStack/MyVpc06Jun2025/pubsub06Jun2025Subnet2/RouteTable": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MyVpc06Jun2025pubsub06Jun2025Subnet2RouteTable33576165"
+          }
+        ],
+        "/DeployPsqlStack/MyVpc06Jun2025/pubsub06Jun2025Subnet2/RouteTableAssociation": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MyVpc06Jun2025pubsub06Jun2025Subnet2RouteTableAssociationF12854C7"
+          }
+        ],
+        "/DeployPsqlStack/MyVpc06Jun2025/pubsub06Jun2025Subnet2/DefaultRoute": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MyVpc06Jun2025pubsub06Jun2025Subnet2DefaultRouteD9806E50"
+          }
+        ],
+        "/DeployPsqlStack/MyVpc06Jun2025/pvtsub06Jun2025Subnet1": [
+          {
+            "type": "aws:cdk:analytics:construct",
+            "data": {
+              "availabilityZone": "*",
+              "vpcId": "*",
+              "cidrBlock": "*",
+              "mapPublicIpOnLaunch": false,
+              "ipv6CidrBlock": "*",
+              "assignIpv6AddressOnCreation": "*"
+            }
+          },
+          {
+            "type": "aws:cdk:analytics:construct",
+            "data": {
+              "availabilityZone": "*",
+              "vpcId": "*",
+              "cidrBlock": "*",
+              "mapPublicIpOnLaunch": false,
+              "ipv6CidrBlock": "*",
+              "assignIpv6AddressOnCreation": "*"
+            }
+          }
+        ],
+        "/DeployPsqlStack/MyVpc06Jun2025/pvtsub06Jun2025Subnet1/Subnet": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MyVpc06Jun2025pvtsub06Jun2025Subnet1Subnet1FB2A2DF"
+          }
+        ],
+        "/DeployPsqlStack/MyVpc06Jun2025/pvtsub06Jun2025Subnet1/RouteTable": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MyVpc06Jun2025pvtsub06Jun2025Subnet1RouteTableFBC488D5"
+          }
+        ],
+        "/DeployPsqlStack/MyVpc06Jun2025/pvtsub06Jun2025Subnet1/RouteTableAssociation": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MyVpc06Jun2025pvtsub06Jun2025Subnet1RouteTableAssociationBBFC7425"
+          }
+        ],
+        "/DeployPsqlStack/MyVpc06Jun2025/pvtsub06Jun2025Subnet2": [
+          {
+            "type": "aws:cdk:analytics:construct",
+            "data": {
+              "availabilityZone": "*",
+              "vpcId": "*",
+              "cidrBlock": "*",
+              "mapPublicIpOnLaunch": false,
+              "ipv6CidrBlock": "*",
+              "assignIpv6AddressOnCreation": "*"
+            }
+          },
+          {
+            "type": "aws:cdk:analytics:construct",
+            "data": {
+              "availabilityZone": "*",
+              "vpcId": "*",
+              "cidrBlock": "*",
+              "mapPublicIpOnLaunch": false,
+              "ipv6CidrBlock": "*",
+              "assignIpv6AddressOnCreation": "*"
+            }
+          }
+        ],
+        "/DeployPsqlStack/MyVpc06Jun2025/pvtsub06Jun2025Subnet2/Subnet": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MyVpc06Jun2025pvtsub06Jun2025Subnet2SubnetFD745858"
+          }
+        ],
+        "/DeployPsqlStack/MyVpc06Jun2025/pvtsub06Jun2025Subnet2/RouteTable": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MyVpc06Jun2025pvtsub06Jun2025Subnet2RouteTableAE7D7339"
+          }
+        ],
+        "/DeployPsqlStack/MyVpc06Jun2025/pvtsub06Jun2025Subnet2/RouteTableAssociation": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MyVpc06Jun2025pvtsub06Jun2025Subnet2RouteTableAssociationE711111F"
+          }
+        ],
+        "/DeployPsqlStack/MyVpc06Jun2025/IGW": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MyVpc06Jun2025IGWABF3E6E6"
+          }
+        ],
+        "/DeployPsqlStack/MyVpc06Jun2025/VPCGW": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MyVpc06Jun2025VPCGW87F52EF4"
+          }
+        ],
+        "/DeployPsqlStack/MyVpc06Jun2025/RestrictDefaultSecurityGroupCustomResource": [
+          {
+            "type": "aws:cdk:analytics:construct",
+            "data": "*"
+          }
+        ],
+        "/DeployPsqlStack/MyVpc06Jun2025/RestrictDefaultSecurityGroupCustomResource/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MyVpc06Jun2025RestrictDefaultSecurityGroupCustomResource9BF9418E"
+          }
+        ],
+        "/DeployPsqlStack/Custom::VpcRestrictDefaultSGCustomResourceProvider": [
+          {
+            "type": "aws:cdk:is-custom-resource-handler-customResourceProvider",
+            "data": true
+          }
+        ],
+        "/DeployPsqlStack/Custom::VpcRestrictDefaultSGCustomResourceProvider/Role": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CustomVpcRestrictDefaultSGCustomResourceProviderRole26592FE0"
+          }
+        ],
+        "/DeployPsqlStack/Custom::VpcRestrictDefaultSGCustomResourceProvider/Handler": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CustomVpcRestrictDefaultSGCustomResourceProviderHandlerDC833E5E"
+          }
+        ],
+        "/DeployPsqlStack/BastionSG06Jun2025": [
+          {
+            "type": "aws:cdk:analytics:construct",
+            "data": {
+              "vpc": "*",
+              "description": "*"
+            }
+          },
+          {
+            "type": "aws:cdk:analytics:method",
+            "data": {
+              "addIngressRule": [
+                {
+                  "canInlineRule": true,
+                  "connections": "*",
+                  "uniqueId": "*"
+                },
+                {},
+                "*",
+                "*"
+              ]
+            }
+          }
+        ],
+        "/DeployPsqlStack/BastionSG06Jun2025/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BastionSG06Jun2025FEC54E03"
+          }
+        ],
+        "/DeployPsqlStack/RDSSG06Jun2025": [
+          {
+            "type": "aws:cdk:analytics:construct",
+            "data": {
+              "vpc": "*",
+              "description": "*"
+            }
+          },
+          {
+            "type": "aws:cdk:analytics:method",
+            "data": {
+              "addIngressRule": [
+                "*",
+                {},
+                "*",
+                "*"
+              ]
+            }
+          }
+        ],
+        "/DeployPsqlStack/RDSSG06Jun2025/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "RDSSG06Jun2025159021D1"
+          }
+        ],
+        "/DeployPsqlStack/RDSSG06Jun2025/from DeployPsqlStackBastionSG06Jun2025096EB649:5432": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "RDSSG06Jun2025fromDeployPsqlStackBastionSG06Jun2025096EB649543235A38BA6"
+          }
+        ],
+        "/DeployPsqlStack/Bastion06Jun2025": [
+          {
+            "type": "aws:cdk:analytics:construct",
+            "data": {
+              "instanceType": "*",
+              "machineImage": "*",
+              "vpc": "*",
+              "keyName": "*",
+              "securityGroup": "*",
+              "vpcSubnets": {
+                "subnetType": "Public"
+              }
+            }
+          }
+        ],
+        "/DeployPsqlStack/Bastion06Jun2025/InstanceRole": [
+          {
+            "type": "aws:cdk:analytics:construct",
+            "data": {
+              "assumedBy": {
+                "principalAccount": "*",
+                "assumeRoleAction": "*"
+              }
+            }
+          }
+        ],
+        "/DeployPsqlStack/Bastion06Jun2025/InstanceRole/ImportInstanceRole": [
+          {
+            "type": "aws:cdk:analytics:construct",
+            "data": "*"
+          }
+        ],
+        "/DeployPsqlStack/Bastion06Jun2025/InstanceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "Bastion06Jun2025InstanceRole02EBC15B"
+          }
+        ],
+        "/DeployPsqlStack/Bastion06Jun2025/InstanceProfile": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "Bastion06Jun2025InstanceProfile1470EE03"
+          }
+        ],
+        "/DeployPsqlStack/Bastion06Jun2025/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "Bastion06Jun2025703E2CCC"
+          }
+        ],
+        "/DeployPsqlStack/SsmParameterValue:--aws--service--ami-amazon-linux-latest--al2023-ami-kernel-6.1-x86_64:C96584B6-F00A-464E-AD19-53AFF4B05118.Parameter": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SsmParameterValueawsserviceamiamazonlinuxlatestal2023amikernel61x8664C96584B6F00A464EAD1953AFF4B05118Parameter"
+          }
+        ],
+        "/DeployPsqlStack/psqldb06Jun2025": [
+          {
+            "type": "aws:cdk:analytics:construct",
+            "data": {
+              "vpc": "*",
+              "deletionProtection": false,
+              "multiAz": false,
+              "publiclyAccessible": false,
+              "removalPolicy": "destroy",
+              "securityGroups": [
+                "*"
+              ],
+              "vpcSubnets": {
+                "subnetType": "Isolated"
+              },
+              "engine": {
+                "engineType": "*",
+                "singleUserRotationApplication": "*",
+                "engineVersion": {
+                  "fullVersion": "*",
+                  "majorVersion": "*"
+                },
+                "parameterGroupFamily": "*",
+                "engineFamily": "*",
+                "defaultUsername": "*"
+              },
+              "allocatedStorage": "*",
+              "databaseName": "*",
+              "instanceType": "*",
+              "credentials": "*"
+            }
+          }
+        ],
+        "/DeployPsqlStack/psqldb06Jun2025/SubnetGroup": [
+          {
+            "type": "aws:cdk:analytics:construct",
+            "data": {
+              "description": "*",
+              "vpc": "*",
+              "vpcSubnets": {
+                "subnetType": "Isolated"
+              },
+              "removalPolicy": "*"
+            }
+          }
+        ],
+        "/DeployPsqlStack/psqldb06Jun2025/SubnetGroup/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "psqldb06Jun2025SubnetGroup63889476"
+          }
+        ],
+        "/DeployPsqlStack/psqldb06Jun2025/Secret": [
+          {
+            "type": "aws:cdk:analytics:construct",
+            "data": {
+              "encryptionKey": "*",
+              "secretName": "*",
+              "replicaRegions": "*"
+            }
+          },
+          {
+            "type": "aws:cdk:analytics:construct",
+            "data": {
+              "username": "*",
+              "secretName": "*",
+              "encryptionKey": "*",
+              "excludeCharacters": "*",
+              "replaceOnPasswordCriteriaChanges": true,
+              "replicaRegions": "*"
+            }
+          }
+        ],
+        "/DeployPsqlStack/psqldb06Jun2025/Secret/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "DeployPsqlStackpsqldb06Jun2025Secret34DA2A1C3fdaad7efa858a3daf9490cf0a702aeb"
+          }
+        ],
+        "/DeployPsqlStack/psqldb06Jun2025/Secret/Attachment": [
+          {
+            "type": "aws:cdk:analytics:construct",
+            "data": {
+              "secret": "*",
+              "target": "*"
+            }
+          }
+        ],
+        "/DeployPsqlStack/psqldb06Jun2025/Secret/Attachment/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "psqldb06Jun2025SecretAttachment642005F2"
+          }
+        ],
+        "/DeployPsqlStack/psqldb06Jun2025/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "psqldb06Jun202528C8F525"
+          }
+        ],
+        "/DeployPsqlStack/BastionHostPublicIP": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BastionHostPublicIP"
+          }
+        ],
+        "/DeployPsqlStack/RDS_Endpoint": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "RDSEndpoint"
+          }
+        ],
+        "/DeployPsqlStack/RDS_SecretName": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "RDSSecretName"
+          }
+        ],
+        "/DeployPsqlStack/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/DeployPsqlStack/CDKMetadata/Condition": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadataAvailable"
+          }
+        ],
+        "/DeployPsqlStack/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/DeployPsqlStack/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "DeployPsqlStack"
+    },
+    "Tree": {
+      "type": "cdk:tree",
+      "properties": {
+        "file": "tree.json"
+      }
+    }
+  },
+  "minimumCliVersion": "2.1018.0"
+}
